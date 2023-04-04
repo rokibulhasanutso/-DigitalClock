@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            background: #110026;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+		#clock {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 65px;
+            font-weight: bold;
+            text-shadow: 0px 0px 255px #ffffff;
+		}
+	</style>
+</head>
+<body>
+    <div id="clock"></div> <!-- this content for showing digital clock -->
+
+    <!-- start here javascript code -->
+    <script>
+        function updateClock() {
+            const currentTime = new Date();
+            const setClock = {
+                hours : currentTime.getHours().toString().padStart(2, '0'),
+                minutes : currentTime.getMinutes().toString().padStart(2, '0'),
+                seconds : currentTime.getSeconds().toString().padStart(2, '0'),
+                clockFormat : function() {return `${this.hours} : ${this.minutes} : ${this.seconds}`}
+            }
+            document.querySelector('#clock').innerHTML = setClock.clockFormat();
+        }
+
+        setInterval(updateClock, 1000);
+    </script>
+    
+</body>
+</html>
