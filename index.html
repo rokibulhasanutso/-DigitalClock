@@ -47,7 +47,7 @@
                 seconds : currentTime.getSeconds().toString().padStart(2, '0'),
                 clockFormat : function() {return `${this.hours} : ${this.minutes} : ${this.seconds}`}
             }
-            document.querySelector('#clock').innerHTML = setClock.clockFormat();
+            document.querySelector('#clock').innerText = setClock.clockFormat();
         }
 
         setInterval(updateClock, 1000);
